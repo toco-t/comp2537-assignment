@@ -26,3 +26,19 @@ nav a:hover {
   display: flex;
   flex-direction: column;
 }
+
+main {
+  margin: 1%;
+}
+
+.first, .second, .third {
+  display: flex;
+  justify-content: space-around;
+}
+
+.pokemon {
+  border: 1px solid #111;
+  width: 20%;
+  text-align: center;
+  padding: 5%;
+}
