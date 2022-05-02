@@ -42,3 +42,14 @@ main {
   text-align: center;
   padding: 5%;
 }
+
+@media (max-width: 600px) {
+  .first, .second, .third {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pokemon {
+    width: 90%;
+  }
+}
