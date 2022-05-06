@@ -4,17 +4,18 @@ function process(data) {
   third = ""
 
   for (let i = 0; i < 3; i++) {
-    first+= `<div class="pokemon">${data.results[i].name}</div>`
+    var random_num = Math.random() * 151 + 1
+    first += `<div class="pokemon"><p>No. ${i}</p>${data.results[i].name}</div>`
   }
   $(".first").html(first);
 
   for (let i = 3; i < 6; i++) {
-    second += `<div class="pokemon">${data.results[i].name}</div>`
+    second += `<div class="pokemon"><p>No. ${i}</p>${data.results[i].name}</div>`
   }
   $(".second").html(second);
 
   for (let i = 6; i < 9; i++) {
-    third += `<div class="pokemon">${data.results[i].name}</div>`
+    third += `<div class="pokemon"><p>No. ${i}</p>${data.results[i].name}</div>`
   }
   $(".third").html(third);
 }
