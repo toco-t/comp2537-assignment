@@ -1,7 +1,10 @@
 const express = require('express');
 const app = express();
+const fs = require("fs");
 
-app.use(express.static("./public"));
+app.use("/html", express.static("./public/html"));
+app.use("/css", express.static("./public/css"));
+app.use("/js", express.static("./public/js"));
 
 app.listen(5000, function(err){
   if (err) {
@@ -9,4 +12,14 @@ app.listen(5000, function(err){
   } else {
     console.log("working!");
   }
+})
+
+app.get("/", (req, res) => {
+  let doc = fs.readFileSync("./public/html/index.html", "utf8");
+  res.send(doc);
+})
+
+app.get("/search.html", (req, res) => {
+  let doc = fs.readFileSync("./public/html/search.html", "utf8");
+  res.send(doc);
 })

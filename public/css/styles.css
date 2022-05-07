@@ -1,10 +1,12 @@
 body {
-  margin: 0;
   /* font-family: 'Inconsolata', monospace; */
   font-family: 'Press Start 2P', cursive;
+  background-color: #003A70;
+  margin: 0;
 }
 
 header, footer {
+  color: #FFCB05;
   display: flex;
   justify-content: center;
 }
@@ -39,6 +41,7 @@ main {
 }
 
 .pokemon {
+  background-color: #f1f1f1;
   border: 1px solid #111;
   width: 20%;
   text-align: center;
