@@ -7,12 +7,15 @@ body {
 
 header, footer {
   color: #FFCB05;
+  text-shadow: 2px 2px #3D7DCA;
   display: flex;
   justify-content: center;
+  margin: 2%;
 }
 
 nav {
   background-color: #333;
+  border: 0.2em solid #DCDCDC;
 }
 
 nav ul {
@@ -27,7 +30,7 @@ nav ul li {
 }
 
 nav a {
-  color: #fff;
+  color: #f1f1f1;
   text-decoration: none;
 }
 
@@ -44,6 +47,13 @@ main {
   margin: 1%;
 }
 
+main h2 {
+  color: #f1f1f1;
+  text-align: center;
+  text-shadow: 2px 2px #333;
+  margin: 4%;
+}
+
 .first-row, .second-row, .third-row {
   display: flex;
   justify-content: space-around;
@@ -51,10 +61,11 @@ main {
 
 .pokemon {
   background-color: #f1f1f1;
-  border: 1px solid #111;
+  border: 0.5em double #333;
+  border-radius: 5px;
   width: 20%;
   text-align: center;
-  padding: 5%;
+  padding: 4%;
   margin-bottom: 1%;
 }
 

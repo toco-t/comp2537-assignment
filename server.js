@@ -9,8 +9,6 @@ app.use("/js", express.static("./public/js"));
 app.listen(5000, function(err){
   if (err) {
     console.log(err);
-  } else {
-    console.log("working!");
   }
 })
 
