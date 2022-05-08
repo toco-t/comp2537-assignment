@@ -86,6 +86,21 @@ main .intro-row {
   text-decoration: none;
 }
 
+.search-menu {
+  color: #f1f1f1;
+  margin: 1em;
+}
+
+.search-menu select {
+  font-family: 'Press Start 2P', cursive;
+  border-radius: 1px;
+  padding: 1em;
+}
+
+.search-menu option {
+  color: #333;
+}
+
 @media (max-width: 600px) {
   nav ul {
     flex-direction: column;
