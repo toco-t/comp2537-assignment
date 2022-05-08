@@ -73,6 +73,11 @@ main .intro-row {
   margin-bottom: 1%;
 }
 
+.pokemon a {
+  color: #333;
+  text-decoration: none;
+}
+
 @media (max-width: 600px) {
   nav ul {
     flex-direction: column;

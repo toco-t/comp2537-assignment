@@ -1,7 +1,3 @@
-function specificPokemon(data){
-    console.log(data);
-}
-
 async function randomPokemons(){
   for (let i = 0; i < 9; i++) {
     let id = Math.floor(Math.random() * 386) + 1
@@ -15,7 +11,7 @@ async function randomPokemons(){
     }
   })
 
-    let randomPokemon = `<div class="pokemon" id=${id}><p>No. ${id}</p><img src=${poke_img}></img></div>`
+    let randomPokemon = `<div class="pokemon"><a href="pokemon.html?id=${id}"><p>No. ${id}</p><img src=${poke_img}></img></a></div>`
 
     if (i < 3) {
       $(".first-row").append(randomPokemon)
@@ -29,5 +25,4 @@ async function randomPokemons(){
 
 $(document).ready(() => {
   randomPokemons();
-  $(".pokemon").on("click", specificPokemon)
 });

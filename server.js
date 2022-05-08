@@ -21,3 +21,8 @@ app.get("/search.html", (req, res) => {
   let doc = fs.readFileSync("./public/html/search.html", "utf8");
   res.send(doc);
 })
+
+app.get("/pokemon.html", (req, res) => {
+  let doc = fs.readFileSync("./public/html/pokemon.html", "utf8");
+  res.send(doc);
+})
