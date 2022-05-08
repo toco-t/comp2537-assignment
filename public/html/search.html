@@ -1,46 +1,96 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <!-- meta -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>comp2537 - assignment01</title>
 
-    <!-- google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Press+Start+2P&display=swap" rel="stylesheet">
+<head>
+  <!-- meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>comp2537 - assignment01</title>
 
-    <!-- css -->
-    <link rel="stylesheet" href="css/styles.css">
-  </head>
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Press+Start+2P&display=swap" rel="stylesheet">
 
-  <body>
-    <!-- wrapping div -->
-    <div class="wrapper">
-      <!-- title -->
-      <header>
-        <h1>PokeAPI</h1>
-      </header>
-      <!-- nav bar -->
-      <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/search.html">Search</a></li>
-        </ul>
-      </nav>
-      <!-- main -->
-      <main>
-      </main>
-      <!-- footer -->
-      <footer>
-        <p>&#169; Toco Tachibana</p>
-      </footer>
-    </div>
+  <!-- css -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
 
-    <!-- JavaSript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../js/search.js"></script>
+<body>
+  <!-- wrapping div -->
+  <div class="wrapper">
+    <!-- title -->
+    <header>
+      <h1>PokeAPI</h1>
+    </header>
+    <!-- nav bar -->
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/search.html">Search</a></li>
+      </ul>
+    </nav>
+    <!-- main -->
+    <main>
+      <div class="intro-row">
+        <h2>Pokemon Storage System openedc...</h2>
+      </div>
+      <div class="first-row">
+        <div class="search-menu">
+          <label for="type">Type:</label>
+          <select name="type" id="type">
+            <option value="fire">Fire</option>
+            <option value="grass">Grass</option>
+            <option value="electric">Electric</option>
+            <option value="water">Water</option>
+            <option value="ground">Ground</option>
+            <option value="rock">Rock</option>
+            <option value="fairy">Fairy</option>
+            <option value="poison">Poison</option>
+            <option value="bug">Bug</option>
+            <option value="dragon">Dragon</option>
+            <option value="psychic">Psychic</option>
+            <option value="flying">Flying</option>
+            <option value="fighting">Fighting</option>
+            <option value="normal">Normal</option>
+          </select>
+        </div>
+        <div class="search-menu">
+          <label for="id">ID:</label>
+          <select name="id" id="id">
+            <option value="100">1-100</option>
+            <option value="200">101-200</option>
+            <option value="300">201-300</option>
+            <option value="400">301-400</option>
+          </select>
+        </div>
+        <div class="search-menu">
+          <label for="name">Name:</label>
+          <select name="name" id="name">
+            <option value="a, b, c, d">a-d</option>
+            <option value="e, f, g, h">e-h</option>
+            <option value="i, j, k, l">i-l</option>
+            <option value="m, n, o, p">m-p</option>
+            <option value="q, r, s, t">q-t</option>
+            <option value="u, v, w">u-w</option>
+            <option value="x, y, z">x-z</option>
+          </select>
+        </div>
+      </div>
+      <div class="second-row">
 
-  </body>
+      </div>
+    </main>
+    <!-- footer -->
+    <footer>
+      <p>&#169; Toco Tachibana</p>
+    </footer>
+  </div>
+
+  <!-- JavaSript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="../js/search.js"></script>
+
+</body>
+
 </html>

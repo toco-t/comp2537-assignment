@@ -1,8 +1,7 @@
 function pokemonCard(data){
-  console.log(data);
   $(".name").html(data.name.toUpperCase());
   $(".type").html(`Type: ${data.types[0].type.name.toUpperCase()}`);
-  $("img").attr("src", data.sprites.other.dream_world.front_default);
+  $("img").attr("src", data.sprites.other["official-artwork"].front_default);
   $(".length").html(`Length: ${data.height / 10}m`);
   $(".weight").html(`Weight: ${data.weight / 10}kg`);
 
@@ -17,7 +16,7 @@ function pokemonCard(data){
     $(".card-row").css("background-color", "#FCF7DE");
   }
   else if (type == "water") {
-    $(".card-row").css("background-color", "#DEF3FD");
+    $(".card-row").css("background-color", "#33ccff");
   }
   else if (type == "ground") {
     $(".card-row").css("background-color", "#f4e7da");
