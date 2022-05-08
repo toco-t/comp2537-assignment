@@ -61,4 +61,12 @@ $(document).ready(() => {
       type: "GET",
       success: pokemonCard
     })
+
+    $.ajax({
+      url: `https://pokeapi.co/api/v2/pokemon-species/${id}/`,
+      type: "GET",
+      success: (data) => {
+          $(".description").html(data.flavor_text_entries[0].flavor_text);
+      }
+    })
 })

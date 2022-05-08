@@ -18,7 +18,7 @@ main {
   background-color: #f1f1f1;
   display: flex;
   justify-content: space-around;
-  padding: 1%;
+  padding: 1em;
 }
 
 .card-row img {
@@ -27,6 +27,11 @@ main {
   border-radius: 5px;
   padding: 2% 3%;
   width: 55%;
+}
+
+.description {
+  font-weight: 100;
+  line-height: 1.5;
 }
 
 @media (max-width: 700px) {
