@@ -47,7 +47,6 @@ main {
 .first-row, .second-row, .third-row {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 1%;
 }
 
 .pokemon {
@@ -56,6 +55,7 @@ main {
   width: 20%;
   text-align: center;
   padding: 5%;
+  margin-bottom: 1%;
 }
 
 @media (max-width: 600px) {
@@ -74,6 +74,6 @@ main {
   }
 
   .pokemon {
-    width: 90%;
+    width: 75%;
   }
 }
