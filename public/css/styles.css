@@ -21,7 +21,7 @@ nav {
 nav ul {
   list-style-type: none;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 0;
 }
 
@@ -36,6 +36,15 @@ nav a {
 
 nav a:hover {
   color: #FFCB05;
+}
+
+nav a:hover::before {
+  content: "";
+  display: inline-block;
+  border-top: 0.5em solid transparent;
+	border-left: 0.6em solid #FFCB05;
+	border-bottom: 0.5em solid transparent;
+  padding-right: 0.3em;
 }
 
 .wrapper {
