@@ -15,7 +15,7 @@ header, footer {
 
 nav {
   background-color: #333;
-  border: 0.2em solid #DCDCDC;
+  border: 0.15em solid #DCDCDC;
 }
 
 nav ul {
@@ -45,13 +45,17 @@ nav a:hover {
 
 main {
   margin: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-main h2 {
+main .intro-row {
   color: #f1f1f1;
   text-align: center;
-  text-shadow: 2px 2px #333;
+  text-shadow: 1.5px 1.5px #333;
   margin: 4%;
+  line-height: 1.4;
 }
 
 .first-row, .second-row, .third-row {
