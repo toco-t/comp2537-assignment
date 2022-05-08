@@ -15,15 +15,24 @@ nav {
   background-color: #333;
 }
 
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+
+nav ul li {
+  padding: 0.5% 1.5%;
+}
+
 nav a {
   color: #fff;
-  display: inline-block;
   text-decoration: none;
-  padding: 1.5%;
 }
 
 nav a:hover {
-  background-color: #bbb;
+  color: #FFCB05;
 }
 
 .wrapper {
@@ -49,6 +58,15 @@ main {
 }
 
 @media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    padding: 1.5%;
+  }
+
   .first, .second, .third {
     flex-direction: column;
     align-items: center;
