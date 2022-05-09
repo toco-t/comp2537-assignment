@@ -4,8 +4,8 @@ var hp = 0;
 function move() {
   if (i == 0) {
     i = 1;
-    var width = hp / 10;
-    var id = setInterval(frame, width);
+    var width = 10;
+    var id = setInterval(frame, 10);
     function frame() {
       if (width >= hp) {
         clearInterval(id);

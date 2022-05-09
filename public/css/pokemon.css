@@ -9,7 +9,7 @@ main {
   display: flex;
   flex-direction: column;
   border: 0.7em solid #c7a008;
-  border-radius: 5px;
+  border-radius: 10px;
   margin: 3%;
   width: 60%;
 }
@@ -21,17 +21,21 @@ main {
   padding: 1em;
 }
 
+.card .title {
+  justify-content: space-between;
+}
+
 .card-row img {
   background-color: #f1f1f1;
   border: 0.5em solid #c7a008;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 2% 3%;
-  width: 55%;
+  width: 75%;
 }
 
 .description {
-  font-weight: 100;
   line-height: 1.5;
+  width: 75%;
 }
 
 #hp {
