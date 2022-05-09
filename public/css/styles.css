@@ -143,4 +143,10 @@ main .intro-row {
   .pokemon {
     width: 75%;
   }
+
+  .main-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
