@@ -26,7 +26,7 @@ $("#type").change(function() {
         let url = (data.pokemon[i].pokemon.url).split("/");
         let id = url[6];
 
-        let filteredPokemon = `<div class="pokemon"><a href="pokemon.html?id=${id}"><p>No. ${id}</p><p>${data.pokemon[i].pokemon.name.toUpperCase()}</p></a></div>`
+        let filteredPokemon = `<div class="pokemon"><a href="pokemon.html?id=${id}"><p>No. ${id}</p><p class="filtered">${data.pokemon[i].pokemon.name.toUpperCase()}</p></a></div>`
 
         if (i < 3) {
           $(".first-row").append(filteredPokemon);
@@ -65,7 +65,7 @@ $("#region").change(function() {
         let id = url[6];
         ids.push(id);
 
-        let filteredPokemon = `<div class="pokemon"><a href="pokemon.html?id=${id}"><p>No. ${id}</p><p>${data.pokemon_entries[i].pokemon_species.name.toUpperCase()}</p></a></div>`
+        let filteredPokemon = `<div class="pokemon"><a href="pokemon.html?id=${id}"><p>No. ${id}</p><p class="filtered">${data.pokemon_entries[i].pokemon_species.name.toUpperCase()}</p></a></div>`
 
         if (i < 3) {
           $(".first-row").append(filteredPokemon);
@@ -112,7 +112,7 @@ $("#name").change(function() {
         let id = url[6];
         ids.push(id);
 
-        let filteredPokemon = `<div class="pokemon"><a href="pokemon.html?id=${id}"><p>No. ${id}</p><p>${data.results[index].name.toUpperCase()}</p></a></div>`
+        let filteredPokemon = `<div class="pokemon"><a href="pokemon.html?id=${id}"><p>No. ${id}</p><p class="filtered">${data.results[index].name.toUpperCase()}</p></a></div>`
 
         if (i < 3) {
           $(".first-row").append(filteredPokemon);

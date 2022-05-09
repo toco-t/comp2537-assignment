@@ -101,6 +101,19 @@ main .intro-row {
   color: #333;
 }
 
+.filtered:hover {
+  color: #FFCB05;
+}
+
+.filtered:hover::before {
+  content: "";
+  display: inline-block;
+  border-top: 0.5em solid transparent;
+	border-left: 0.6em solid #FFCB05;
+	border-bottom: 0.5em solid transparent;
+  padding-right: 0.3em;
+}
+
 .pages {
   display: flex;
   flex-wrap: wrap;
@@ -112,7 +125,7 @@ main .intro-row {
   font-family: 'Press Start 2P', cursive;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   nav ul {
     flex-direction: column;
     align-items: center;
