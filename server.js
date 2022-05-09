@@ -6,7 +6,7 @@ app.use("/html", express.static("./public/html"));
 app.use("/css", express.static("./public/css"));
 app.use("/js", express.static("./public/js"));
 
-app.listen(5000, function(err){
+app.listen(process.env.PORT || 5000, function(err){
   if (err) {
     console.log(err);
   }
