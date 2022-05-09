@@ -1,3 +1,10 @@
+var ids = [];
+var current_page = 1;
+
+$("body").on("click", ".page-button", () => {
+  console.log(this.id);
+})
+
 $("#type").change(function() {
   $('#region').get(0).selectedIndex = 0;
   $('#name').get(0).selectedIndex = 0;
@@ -17,7 +24,7 @@ $("#type").change(function() {
 
       for (let i = 0; i < 9; i++) {
         let url = (data.pokemon[i].pokemon.url).split("/");
-        let id = url[6]
+        let id = url[6];
 
         let filteredPokemon = `<div class="pokemon"><a href="pokemon.html?id=${id}"><p>No. ${id}</p><p>${data.pokemon[i].pokemon.name.toUpperCase()}</p></a></div>`
 
@@ -25,7 +32,7 @@ $("#type").change(function() {
           $(".first-row").append(filteredPokemon);
         } else if (i < 6) {
           $(".second-row").append(filteredPokemon);
-        } else {
+        } else if (i < 9) {
           $(".third-row").append(filteredPokemon);
         }
       }
@@ -39,7 +46,7 @@ $("#region").change(function() {
   $(".first-row").html("");
   $(".second-row").html("");
   $(".third-row").html("");
-    $(".pages").html("");
+  $(".pages").html("");
 
   pokemon_region = $("#region").val();
   console.log(pokemon_region);
@@ -53,9 +60,10 @@ $("#region").change(function() {
         $(".pages").append(`<button id="${i}" class="page-button">${i}</button>`)
       }
 
-      for (let i = 0; i < 9; i++) {
+      for (let i = 0; i < data.pokemon_entries.length; i++) {
         let url = (data.pokemon_entries[i].pokemon_species.url).split("/");
-        let id = url[6]
+        let id = url[6];
+        ids.push(id);
 
         let filteredPokemon = `<div class="pokemon"><a href="pokemon.html?id=${id}"><p>No. ${id}</p><p>${data.pokemon_entries[i].pokemon_species.name.toUpperCase()}</p></a></div>`
 
@@ -63,7 +71,7 @@ $("#region").change(function() {
           $(".first-row").append(filteredPokemon);
         } else if (i < 6) {
           $(".second-row").append(filteredPokemon);
-        } else {
+        } else if (i < 9) {
           $(".third-row").append(filteredPokemon);
         }
       }
@@ -77,7 +85,7 @@ $("#name").change(function() {
   $(".first-row").html("");
   $(".second-row").html("");
   $(".third-row").html("");
-    $(".pages").html("");
+  $(".pages").html("");
 
   var pokemon_name = $("#name").val();
 
@@ -98,10 +106,11 @@ $("#name").change(function() {
         $(".pages").append(`<button id="${i}" class="page-button">${i}</button>`)
       }
 
-      for (let i = 0; i < 9; i++) {
+      for (let i = 0; i < filteredPokemons.length; i++) {
         let index = filteredPokemons[i];
         let url = (data.results[index].url).split("/");
-        let id = url[6]
+        let id = url[6];
+        ids.push(id);
 
         let filteredPokemon = `<div class="pokemon"><a href="pokemon.html?id=${id}"><p>No. ${id}</p><p>${data.results[index].name.toUpperCase()}</p></a></div>`
 
@@ -109,7 +118,7 @@ $("#name").change(function() {
           $(".first-row").append(filteredPokemon);
         } else if (i < 6) {
           $(".second-row").append(filteredPokemon);
-        } else {
+        } else if (i < 9) {
           $(".third-row").append(filteredPokemon);
         }
       }
