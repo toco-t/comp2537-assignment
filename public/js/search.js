@@ -1,6 +1,9 @@
 $("#type").change(function() {
-  $('#id').get(0).selectedIndex = 0;
+  $('#region').get(0).selectedIndex = 0;
   $('#name').get(0).selectedIndex = 0;
+  $(".first-row").html("");
+  $(".second-row").html("");
+  $(".third-row").html("");
 
   $.ajax({
     url: `https://pokeapi.co/api/v2/type/${$("#type").val()}/`,
@@ -9,7 +12,6 @@ $("#type").change(function() {
       for (let i = 0; i < 9; i++) {
         let url = (data.pokemon[i].pokemon.url).split("/");
         let id = url[6]
-        console.log(id);
 
         let filteredPokemon = `<div class="pokemon"><a href="pokemon.html?id=${id}"><p>No. ${id}</p><p>${data.pokemon[i].pokemon.name.toUpperCase()}</p></a></div>`
 
@@ -25,16 +27,22 @@ $("#type").change(function() {
   })
 })
 
-$("#id").change(function() {
+$("#region").change(function() {
   $('#type').get(0).selectedIndex = 0;
   $('#name').get(0).selectedIndex = 0;
+  $(".first-row").html("");
+  $(".second-row").html("");
+  $(".third-row").html("");
 
-  pokemon_id = $("#id").val();
+  pokemon_id = $("#region").val();
 })
 
 $("#name").change(function() {
   $('#type').get(0).selectedIndex = 0;
-  $('#id').get(0).selectedIndex = 0;
+  $('#region').get(0).selectedIndex = 0;
+  $(".first-row").html("");
+  $(".second-row").html("");
+  $(".third-row").html("");
 
   pokemon_name = $("#name").val();
 })
