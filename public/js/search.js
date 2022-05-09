@@ -34,7 +34,29 @@ $("#region").change(function() {
   $(".second-row").html("");
   $(".third-row").html("");
 
-  pokemon_id = $("#region").val();
+  pokemon_region = $("#region").val();
+  console.log(pokemon_region);
+
+  $.ajax({
+    url: `https://pokeapi.co/api/v2/pokedex/${pokemon_region}/`,
+    type: "GET",
+    success: (data) => {
+      for (let i = 0; i < 9; i++) {
+        let url = (data.pokemon_entries[i].pokemon_species.url).split("/");
+        let id = url[6]
+
+        let filteredPokemon = `<div class="pokemon"><a href="pokemon.html?id=${id}"><p>No. ${id}</p><p>${data.pokemon_entries[i].pokemon_species.name.toUpperCase()}</p></a></div>`
+
+        if (i < 3) {
+          $(".first-row").append(filteredPokemon);
+        } else if (i < 6) {
+          $(".second-row").append(filteredPokemon);
+        } else {
+          $(".third-row").append(filteredPokemon);
+        }
+      }
+    }
+  })
 })
 
 $("#name").change(function() {
