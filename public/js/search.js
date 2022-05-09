@@ -1,9 +1,9 @@
 var ids = [];
 var current_page = 1;
 
-$("body").on("click", ".page-button", () => {
-  console.log(this.id);
-})
+// $("body").on("click", ".page-button", () => {
+//
+// })
 
 $("#type").change(function() {
   $('#region').get(0).selectedIndex = 0;
@@ -49,7 +49,6 @@ $("#region").change(function() {
   $(".pages").html("");
 
   pokemon_region = $("#region").val();
-  console.log(pokemon_region);
 
   $.ajax({
     url: `https://pokeapi.co/api/v2/pokedex/${pokemon_region}/`,
