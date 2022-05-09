@@ -1,9 +1,40 @@
+var i = 0;
+var hp = 0;
+
+function move() {
+  if (i == 0) {
+    i = 1;
+    var width = hp / 10;
+    var id = setInterval(frame, width);
+    function frame() {
+      if (width >= hp) {
+        clearInterval(id);
+        i = 0;
+      } else {
+        width++;
+        $("#hp-bar").width(width + "%");
+        $("#hp-bar").html("HP: " + width);
+      }
+    }
+  }
+}
+
+
+
 function pokemonCard(data){
   $(".name").html(data.name.toUpperCase());
   $(".type").html(`Type: ${data.types[0].type.name.toUpperCase()}`);
   $("img").attr("src", data.sprites.other["official-artwork"].front_default);
   $(".length").html(`Length: ${data.height / 10}m`);
   $(".weight").html(`Weight: ${data.weight / 10}kg`);
+
+  hp = data.stats.filter((obj) => {
+    return obj.stat.name == 'hp'
+  }).map((obj) =>{
+    return obj.base_stat
+  });
+
+  $("#hp-bar").html(`HP: `);
 
   let type = data.types[0].type.name
   if (type == "fire") {
@@ -69,4 +100,6 @@ $(document).ready(() => {
           $(".description").html(data.flavor_text_entries[0].flavor_text);
       }
     })
+
+    $("#hp").click(move);
 })

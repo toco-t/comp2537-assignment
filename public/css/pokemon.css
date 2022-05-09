@@ -34,6 +34,20 @@ main {
   line-height: 1.5;
 }
 
+#hp {
+  width: 100%;
+  background-color: #ddd;
+}
+
+#hp-bar {
+  width: 3.5em;
+  height: 3em;
+  background-color: #04AA6D;
+  text-align: center;
+  line-height: 3em;
+  color: white;
+}
+
 @media (max-width: 700px) {
   .card {
     width: 90%;
