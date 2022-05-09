@@ -1,0 +1,23 @@
+{
+  "name": "comp2537-assignment01",
+  "version": "1.0.0",
+  "description": "comp2537 - assignment 01",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toco-t/comp2537-assignment01.git"
+  },
+  "author": "Toco Tachibana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/toco-t/comp2537-assignment01/issues"
+  },
+  "homepage": "https://github.com/toco-t/comp2537-assignment01#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
