@@ -4,11 +4,17 @@ $("#type").change(function() {
   $(".first-row").html("");
   $(".second-row").html("");
   $(".third-row").html("");
+  $(".pages").html("");
 
   $.ajax({
     url: `https://pokeapi.co/api/v2/type/${$("#type").val()}/`,
     type: "GET",
     success: (data) => {
+      num_pages = Math.ceil(data.pokemon.length / 9);
+      for (let i = 1; i <= num_pages; i++) {
+        $(".pages").append(`<button id="${i}" class="page-button">${i}</button>`)
+      }
+
       for (let i = 0; i < 9; i++) {
         let url = (data.pokemon[i].pokemon.url).split("/");
         let id = url[6]
@@ -33,6 +39,7 @@ $("#region").change(function() {
   $(".first-row").html("");
   $(".second-row").html("");
   $(".third-row").html("");
+    $(".pages").html("");
 
   pokemon_region = $("#region").val();
   console.log(pokemon_region);
@@ -41,6 +48,11 @@ $("#region").change(function() {
     url: `https://pokeapi.co/api/v2/pokedex/${pokemon_region}/`,
     type: "GET",
     success: (data) => {
+      num_pages = Math.ceil(data.pokemon_entries.length / 9);
+      for (let i = 1; i <= num_pages; i++) {
+        $(".pages").append(`<button id="${i}" class="page-button">${i}</button>`)
+      }
+
       for (let i = 0; i < 9; i++) {
         let url = (data.pokemon_entries[i].pokemon_species.url).split("/");
         let id = url[6]
@@ -65,6 +77,7 @@ $("#name").change(function() {
   $(".first-row").html("");
   $(".second-row").html("");
   $(".third-row").html("");
+    $(".pages").html("");
 
   var pokemon_name = $("#name").val();
 
@@ -78,6 +91,11 @@ $("#name").change(function() {
         if (pokemon_name.includes(String(data.results[i].name[0]))) {
           filteredPokemons.push(i);
         }
+      }
+
+      num_pages = Math.ceil(filteredPokemons.length / 9);
+      for (let i = 1; i <= num_pages; i++) {
+        $(".pages").append(`<button id="${i}" class="page-button">${i}</button>`)
       }
 
       for (let i = 0; i < 9; i++) {

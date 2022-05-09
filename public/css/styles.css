@@ -101,6 +101,17 @@ main .intro-row {
   color: #333;
 }
 
+.pages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 5% 2% 2%;
+}
+
+.page-button {
+  font-family: 'Press Start 2P', cursive;
+}
+
 @media (max-width: 600px) {
   nav ul {
     flex-direction: column;
