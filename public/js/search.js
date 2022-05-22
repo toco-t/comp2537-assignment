@@ -5,6 +5,25 @@ var current_page = 1;
 //
 // })
 
+function insertEvent(filter) {
+  var now = new Date(Date.now());
+  var formatted = `${now.getMonth() + 1}/${now.getDate()}, ${now.getHours()}:${now.getMinutes()}`;
+
+  $.ajax({
+    url: `http://localhost:5000/timeline/insert`,
+    type: "PUT",
+    data: {
+      content: `Searched by... ${filter}`,
+      time: `Time: ${formatted}`,
+      hits: 1
+    },
+    success: (res) => {
+      console.log(res);
+    }
+  })
+}
+
+// type
 $("#type").change(function() {
   $('#region').get(0).selectedIndex = 0;
   $('#name').get(0).selectedIndex = 0;
@@ -38,8 +57,11 @@ $("#type").change(function() {
       }
     }
   })
+
+  insertEvent("Type");
 })
 
+// region
 $("#region").change(function() {
   $('#type').get(0).selectedIndex = 0;
   $('#name').get(0).selectedIndex = 0;
@@ -76,6 +98,8 @@ $("#region").change(function() {
       }
     }
   })
+
+    insertEvent("Region");
 })
 
 $("#name").change(function() {
@@ -93,6 +117,7 @@ $("#name").change(function() {
     type: "GET",
     success: (data) => {
       var filteredPokemons = []
+
 
       for (let i = 0; i < data.results.length; i++) {
         if (pokemon_name.includes(String(data.results[i].name[0]))) {
@@ -123,4 +148,6 @@ $("#name").change(function() {
       }
     }
   })
+
+    insertEvent("Name");
 })

@@ -7,13 +7,20 @@ function move() {
     var width = 10;
     var id = setInterval(frame, 10);
     function frame() {
-      if (width >= hp) {
-        clearInterval(id);
-        i = 0;
+      if (width >= hp || width >= 100) {
+        if (hp > 100) {
+          $("#hp-bar").width("100%");
+          $("#hp-bar").html(`HP: ${hp}`);
+          clearInterval(id);
+          i = 0;
+        } else {
+          clearInterval(id);
+          i = 0;
+        }
       } else {
         width++;
         $("#hp-bar").width(width + "%");
-        $("#hp-bar").html("HP: " + width);
+        $("#hp-bar").html(`HP: ${hp}`);
       }
     }
   }

@@ -1,0 +1,38 @@
+.feed-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feed {
+  background-color: #f1f1f1;
+  border: 0.5em double #333;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 4%;
+  margin-bottom: 1%;
+  width: 70%;
+  line-height: 1.5;
+}
+
+.feed:hover {
+  background-color: #ccc;
+  /* color: #f1f1f1; */
+}
+
+.feed button {
+  font-family: 'Press Start 2P', cursive;
+  color: #111;
+  background-color: #f1f1f1;
+  border: .5rem double #555;
+  border-radius: 5px;
+  padding: 3%;
+  margin: 1%;
+}
+
+.feed button:hover {
+  color: #f1f1f1;
+  background-color: #333;
+  border: .5rem double #f1f1f1;
+}
