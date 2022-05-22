@@ -1,0 +1,45 @@
+.sign-in {
+  display: flex;
+  justify-content: center;
+}
+
+.sign-in__form {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.sign-in__form__input {
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  margin: 5%;
+}
+
+.sign-in__form__input input {
+  border: 5px double #aaa;
+  border-radius: 5px;
+  padding: 1% 2%;
+}
+
+.sign-in__form__input input:focus {
+  outline: 2px solid #FFCB05;
+}
+
+.sign-in__btn {
+  display: flex;
+  justify-content: flex-end;
+  margin: 5%;
+}
+
+.sign-in__btn button {
+  background-color: #333;
+  color: #f1f1f1;
+  border: 5px double #aaa;
+  border-radius: 5px;
+  padding: 2% 5%;
+}
+
+.sign-in__btn button:hover {
+  outline: 2px solid #FFCB05;
+}
