@@ -14,34 +14,36 @@
 
   <!-- css -->
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/timeline.css">
+  <link rel="stylesheet" href="css/sign-in.css">
 </head>
 
 <body>
-  <!-- wrapping div -->
+  <!-- container div -->
   <div class="outer">
     <!-- title -->
     <header>
       <h1>PokéDex</h1>
     </header>
-    <!-- nav bar -->
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/search.html">Search</a></li>
-        <li><a href="/timeline.html">Timeline</a></li>
-      </ul>
-    </nav>
-
+    <!-- main section -->
     <main>
-      <div class="intro-row">
-        <h2>Timeline...</h2>
+      <div class="sign-in">
+        <div class="sign-in__form">
+          <div class="sign-in__form__input">
+            <label for="e">Email:</label>
+            <input id="email" value="">
+          </div>
+          <div class="sign-in__form__input">
+            <label for="p">Password:</label>
+            <input id="password" value="">
+          </div>
+          <div class="sign-in__btn">
+            <button onclick="f()">Sign in</button>
+          </div>
+          <div class="sign-in__invalid"></div>
+        </div>
       </div>
-      <div class="feed-row">
 
-      </div>
     </main>
-
     <!-- footer -->
     <footer>
       <p>&#169; Toco Tachibana</p>
@@ -50,7 +52,7 @@
 
   <!-- JavaSript -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="../js/timeline.js"></script>
+  <script src="../js/index.js"></script>
 </body>
 
 </html>

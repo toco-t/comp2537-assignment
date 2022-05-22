@@ -48,7 +48,7 @@ nav a:hover::before {
   padding-right: 0.3em;
 }
 
-.wrapper {
+.outer {
   display: flex;
   flex-direction: column;
 }

@@ -1,8 +1,16 @@
 const express = require('express');
 const app = express();
+const session = require("express-session")
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const fs = require("fs");
+
+app.use(session({
+  secret: "748748724",
+  name: "Session",
+  resave: true,
+  saveUninitialized: true
+}));
 
 app.use("/html", express.static("./public/html"));
 app.use("/css", express.static("./public/css"));
