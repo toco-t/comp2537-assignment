@@ -42,6 +42,11 @@ app.get("/", (req, res) => {
   res.send(doc);
 })
 
+app.get("/sign-in", (req, res) => {
+  let doc = fs.readFileSync("./public/html/sign-in.html", "utf8");
+  res.send(doc);
+})
+
 app.get("/search.html", (req, res) => {
   let doc = fs.readFileSync("./public/html/search.html", "utf8");
   res.send(doc);
