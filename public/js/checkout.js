@@ -7,7 +7,7 @@ var ids = [];
 $(document).ready(
 
   $.ajax({
-    url: `http://localhost:5000/bag`,
+    url: `https://serene-garden-30886.herokuapp.com/bag`,
     type: "GET",
     success: (data) => {
       for (let i=0; i<data.cart.length; i++) {
@@ -42,7 +42,7 @@ function checkout() {
   var now = new Date(Date.now());
 
   $.ajax({
-    url: `http://localhost:5000/past_orders`,
+    url: `https://serene-garden-30886.herokuapp.com/past_orders`,
     type: "POST",
     data: {
       total: total,

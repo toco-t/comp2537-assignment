@@ -1,6 +1,6 @@
 $(document).ready(
   $.ajax({
-    url: `http://localhost:5000/account`,
+    url: `https://serene-garden-30886.herokuapp.com/account`,
     type: "GET",
     success: (data) => {
       $("#account__name").html(data.username);

@@ -118,7 +118,7 @@ function add() {
   let quantity = $("#quantity").val()
 
   $.ajax({
-    url: `http://localhost:5000/add`,
+    url: `https://serene-garden-30886.herokuapp.com/add`,
     type: "POST",
     data: {
       pokemon_id: id,

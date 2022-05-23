@@ -21,7 +21,7 @@ function register() {
     $("#sign-in__message").html("INVALID EMAIL...");
   } else {
     $.ajax({
-      url: `http://localhost:5000/register`,
+      url: `https://serene-garden-30886.herokuapp.com/register`,
       type: "POST",
       data: {
         username: username,
@@ -48,7 +48,7 @@ function signIn() {
     $("#sign-in__message").html("INVALID EMAIL...");
   } else {
     $.ajax({
-      url: `http://localhost:5000/in`,
+      url: `https://serene-garden-30886.herokuapp.com/in`,
       type: "POST",
       data: {
         username: username,

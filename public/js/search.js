@@ -9,7 +9,7 @@ function insertEvent(filter) {
   var now = new Date(Date.now());
 
   $.ajax({
-    url: `http://localhost:5000/timeline`,
+    url: `https://serene-garden-30886.herokuapp.com/timeline`,
     type: "POST",
     data: {
       content: `Searched by... ${filter}`,
