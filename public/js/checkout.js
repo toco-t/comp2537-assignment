@@ -31,7 +31,7 @@ $(document).ready(
         $(".bag__past-orders").append(
           `<div class="bag__past-orders__order"><p>&#165;${data.past_orders[i].total}</p>
           <p>Number of Pokemon: ${data.past_orders[i].quantity}</p>
-          <p>Time: ${data.timeline[i].time.split("GMT")[0]}</p></div>`
+          <p>Time: ${data.past_orders[i].time.split("GMT")[0]}</p></div>`
         )
       }
     }
@@ -48,7 +48,7 @@ function checkout() {
       console.log(data);
     }
   })
-  
+
   $.ajax({
     url: `https://serene-garden-30886.herokuapp.com/past_orders`,
     type: "POST",
