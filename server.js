@@ -10,6 +10,7 @@ app.use(session({
   name: "Session",
   resave: true,
   saveUninitialized: true,
+  // cookie: { secure: true}
 }));
 
 app.use("/html", express.static("./public/html"));
@@ -21,6 +22,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 mongoose.connect("mongodb+srv://Toco:31hPJ6x0MUeJvCaj@cluster0.f0pqe.mongodb.net/usersDB")
 
 const userSchema = new mongoose.Schema({
+  user_id: Number,
   username: String,
   email: String,
   password: String,
@@ -90,6 +92,7 @@ app.post("/register", (req, res) => {
     } else {
       if (users.length == 0) {
         User.create({
+          user_id: Math.floor(Math.random() * 100000),
           username: req.body.username,
           email: req.body.email,
           password: req.body.password,
@@ -121,13 +124,20 @@ app.post("/in", (req, res) => {
       res.send("NO USER FOUND");
     } else {
       req.session.user = users[0].username;
-      req.session.id = users[0]._id;
+      req.session.user_id = users[0].user_id;
       req.session.authenticated = true;
       res.send("SIGN IN SUCCESSFUL...");
     }
   })
 })
 
+app.get("/account", (req, res) => {
+  console.log(req.session);
+  res.send({
+    username: req.session.user,
+    user_id: req.session.user_id
+  });
+})
 
 
 

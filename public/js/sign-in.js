@@ -47,10 +47,10 @@ function signIn() {
         password: password
       },
       success: (data) => {
-        if (data = "NO USER FOUND") {
+        if (data == "NO USER FOUND") {
           $("#sign-in__message").html("NO ACCOUNT FOUND...");
         } else {
-          window.location.href = "/";
+          window.location.href = "/account";
         }
       }
     })
