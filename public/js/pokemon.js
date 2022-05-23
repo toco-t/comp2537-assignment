@@ -20,7 +20,7 @@ function move() {
       } else {
         width++;
         $("#hp-bar").width(width + "%");
-        $("#hp-bar").html(`HP: ${hp}`);
+        $("#hp-bar").html(`HP: ${width}`);
       }
     }
   }
@@ -110,3 +110,22 @@ $(document).ready(() => {
 
     $("#hp").click(move);
 })
+
+
+function add() {
+  let params = new URLSearchParams(window.location.search);
+  let id = params.get("id");
+  let quantity = $("#quantity").val()
+
+  $.ajax({
+    url: `http://localhost:5000/add`,
+    type: "POST",
+    data: {
+      pokemon_id: id,
+      quantity: quantity,
+    },
+    success: (data) => {
+      window.location.href = "/checkout.html";
+    }
+  })
+}

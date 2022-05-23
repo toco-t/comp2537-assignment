@@ -59,6 +59,34 @@ main {
   color: #f1f1f1;
 }
 
+.form, .form__btn {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 2%;
+}
+
+.form input {
+  font-family: 'Press Start 2P', cursive;
+  border: 5px double #333;
+  border-radius: 5px;
+  padding: 2% 3%;
+}
+
+.form__btn button {
+  font-family: 'Press Start 2P', cursive;
+  background-color: #333;
+  border: 5px double #f1f1f1;
+  border-radius: 5px;
+  color: #f1f1f1;
+  padding: 2% 4%;
+  margin-left: 5%;
+}
+
+.form__btn button:hover {
+  color: #FFCB05;
+}
+
 @media (max-width: 700px) {
   .card {
     width: 90%;

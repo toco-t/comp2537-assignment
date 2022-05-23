@@ -29,7 +29,7 @@
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/search.html">Search</a></li>
-        <li style="margin-left: auto"><a href="/account.html">Account</a></li>
+        <li class="right"><a href="/account.html">Account</a></li>
         <li><a href="/checkout.html">Bag</a></li>
         <!-- <li><a href="/timeline.html">Timeline</a></li> -->
       </ul>
@@ -55,6 +55,13 @@
         </div>
         <div class="card-row">
           <p class="description"></p>
+        </div>
+        <div class="card-row form">
+          <label for="q">Quantity:</label>
+          <input id="quantity" type="number" min="1" max="10" name="quantity" value="1">
+        </div>
+        <div class="card-row form__btn">
+          <button onclick="add()">Add to Bag</button>
         </div>
       </div>
     </main>

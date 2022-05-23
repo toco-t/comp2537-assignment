@@ -127,6 +127,10 @@ main .intro-row {
   background-color: #f1f1f1;
 }
 
+.right {
+  margin-left: auto;
+}
+
 @media (max-width: 700px) {
   nav ul {
     flex-direction: column;
@@ -150,5 +154,9 @@ main .intro-row {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .right {
+    margin: 0;
   }
 }

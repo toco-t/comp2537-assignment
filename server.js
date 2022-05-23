@@ -132,13 +132,30 @@ app.post("/in", (req, res) => {
 })
 
 app.get("/account", (req, res) => {
-  console.log(req.session);
   res.send({
     username: req.session.user,
     user_id: req.session.user_id
   });
 })
 
+app.post("/add", (req, res) => {
+  User.findOneAndUpdate({
+    user_id: req.session.user_id
+  }, {
+    $push: {
+      cart: {
+        pokemon_id: req.body.pokemon_id,
+        quantity: req.body.quantity
+      }
+    }
+  }, (err, users) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send("ADDED TO THE BAG");
+    }
+  })
+})
 
 
 // const timelineSchema = new mongoose.Schema({

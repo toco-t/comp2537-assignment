@@ -50,7 +50,7 @@ function signIn() {
         if (data == "NO USER FOUND") {
           $("#sign-in__message").html("NO ACCOUNT FOUND...");
         } else {
-          window.location.href = "/account";
+          window.location.href = "/account.html";
         }
       }
     })
