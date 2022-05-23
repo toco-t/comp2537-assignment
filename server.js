@@ -77,7 +77,7 @@ app.get("/account.html", authenticate, (req, res) => {
   res.send(doc);
 })
 
-app.get("/checkout.html", (req, res) => {
+app.get("/checkout.html", authenticate, (req, res) => {
   let doc = fs.readFileSync("./public/html/checkout.html", "utf8");
   res.send(doc);
 })
@@ -145,7 +145,8 @@ app.post("/add", (req, res) => {
     $push: {
       cart: {
         pokemon_id: req.body.pokemon_id,
-        quantity: req.body.quantity
+        quantity: req.body.quantity,
+        price: req.body.price
       }
     }
   }, (err, users) => {
@@ -153,6 +154,18 @@ app.post("/add", (req, res) => {
       console.log(err);
     } else {
       res.send("ADDED TO THE BAG");
+    }
+  })
+})
+
+app.get("/bag", (req, res) => {
+  User.findOne({
+    user_id: req.session.user_id
+  }, (err, users) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(users);
     }
   })
 })
