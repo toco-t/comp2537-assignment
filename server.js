@@ -38,6 +38,14 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", timelineSchema);
 
+function authenticate(req, res, next) {
+  if (req.session.authenticated) {
+    next();
+  } else {
+    res.redirect("/sign-in");
+  }
+}
+
 app.listen(process.env.PORT || 5000, function(err) {
   if (err) {
     console.log(err);
