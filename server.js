@@ -204,7 +204,7 @@ app.post("/past_orders", (req, res) => {
         total: req.body.total,
         ids: req.body.ids,
         quantity: req.body.count,
-        time: req.body.now
+        time: req.body.time
       }
     }
   }, (err, users)=> {
