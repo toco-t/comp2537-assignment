@@ -6,7 +6,7 @@ $(document).ready(
       $("#account__name").html(data.username);
       $("#account__id").html(data.user_id);
 
-      if (data.timeline.length > 0) {
+      if (data.timeline[].length > 0) {
         for (let i = 0; i < data.timeline.length; i++) {
           $(".account__timeline").append(
             `<div class="account__timeline__event"><p>${data.timeline[i].content}</p>
@@ -15,12 +15,8 @@ $(document).ready(
         }
       }
 
-      if (data.past_orders.length > 0) {
-        var time = '';
-
-        for (let i = 0; i < data.past_orders.length; i++) {
-
-          
+      if (data.past_orders[].length > 0) {
+        for (let i = 0; i < data.past_orders.length; i++)
           $(".account__past-orders").append(
             `<div class="account__past-orders__order"><p>&#165;${data.past_orders[i].total}</p>
             <p>Number of Pokemon: ${data.past_orders[i].quantity}</p>
