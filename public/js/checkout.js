@@ -26,6 +26,14 @@ $(document).ready(
       $("#bag__count").html(`${count}`);
       $("#bag__subtotal").html(`&#165; ${sub_total}`);
       $("#bag__total").html(`&#165; ${total}`);
+
+      for (let i = 0; i < data.past_orders.length; i++) {
+        $(".bag__past-orders").append(
+          `<div class="bag__past-orders__order"><p>&#165;${data.past_orders[i].total}</p>
+          <p>Number of Pokemon: ${data.past_orders[i].quantity}</p>
+          <p>Time: ${data.timeline[i].time.split("GMT")[0]}</p></div>`
+        )
+      }
     }
   })
 )

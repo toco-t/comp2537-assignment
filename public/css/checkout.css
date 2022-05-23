@@ -45,6 +45,23 @@
   padding: 2% 4%;
 }
 
+.bag__past-orders {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 2% 0;
+  width: 90%;
+}
+
+.bag__past-orders__order {
+  background-color: #f1f1f1;
+  border: 5px double #333;
+  color: #333;
+  padding: 2%;
+  margin: auto;
+  width: 50%;
+}
+
 .divider {
   background-color: #f1f1f1;
   content: '';
