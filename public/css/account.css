@@ -26,5 +26,13 @@
   flex-direction: column;
   align-items: flex-start;
   margin: 2% 0;
-  width: 30%;
+  width: 90%;
+}
+
+.account__timeline__event {
+  background-color: #f1f1f1;
+  border: 5px double #333;
+  color: #333;
+  padding: 2%;
+  width: 90%;
 }

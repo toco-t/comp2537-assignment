@@ -27,7 +27,8 @@ const userSchema = new mongoose.Schema({
   email: String,
   password: String,
   cart: [Object],
-  past_orders: [[Object]]
+  past_orders: [[Object]],
+  timeline: [Object]
 });
 
 const User = mongoose.model("User", userSchema);
@@ -132,10 +133,15 @@ app.post("/in", (req, res) => {
 })
 
 app.get("/account", (req, res) => {
-  res.send({
-    username: req.session.user,
+  User.findOne({
     user_id: req.session.user_id
-  });
+  }, (err, users) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(users);
+    }
+  })
 })
 
 app.post("/add", (req, res) => {
@@ -170,6 +176,24 @@ app.get("/bag", (req, res) => {
   })
 })
 
+app.post("/timeline", (req, res) => {
+  User.findOneAndUpdate({
+    user_id: req.session.user_id
+  }, {
+    $push: {
+      timeline: {
+        content: req.body.content,
+        time: req.body.time
+      }
+    }
+  }, (err, users)=> {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(users)
+    }
+  })
+})
 
 // const timelineSchema = new mongoose.Schema({
 //   content: String,

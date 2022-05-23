@@ -7,15 +7,13 @@ var current_page = 1;
 
 function insertEvent(filter) {
   var now = new Date(Date.now());
-  var formatted = `${now.getMonth() + 1}/${now.getDate()}, ${now.getHours()}:${now.getMinutes()}`;
 
   $.ajax({
-    url: `http://localhost:5000/timeline/insert`,
-    type: "PUT",
+    url: `http://localhost:5000/timeline`,
+    type: "POST",
     data: {
       content: `Searched by... ${filter}`,
-      time: `Time: ${formatted}`,
-      hits: 1
+      time: now,
     },
     success: (res) => {
       console.log(res);

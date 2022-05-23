@@ -1,5 +1,6 @@
 var tax = 0.12;
 var sub_total = 0;
+var count = 0;
 
 $(document).ready(
 
@@ -9,6 +10,7 @@ $(document).ready(
     success: (data) => {
       for (let i=0; i<data.cart.length; i++) {
         sub_total += (data.cart[i].price * 10) * data.cart[i].quantity;
+        count += parseInt(data.cart[i].quantity);
 
         $(".bag__contents").append(
           `<div class="bag__contents__card"><p>No. ${data.cart[i].pokemon_id}</p>
@@ -16,8 +18,9 @@ $(document).ready(
         )
       }
 
+      $("#bag__count").html(`${count}`);
       $("#bag__subtotal").html(`&#165; ${sub_total}`);
-      $("#bag__total").html(`&#165; ${sub_total * (1 + tax)}`);
+      $("#bag__total").html(`&#165; ${Math.floor(sub_total * (1 + tax))}`);
     }
   })
 )
