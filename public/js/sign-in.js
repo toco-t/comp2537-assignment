@@ -3,7 +3,7 @@ function containsWhitespace(string) {
       return re.test(string);
 }
 
-function invalidEmail(email) {
+function validEmail(email) {
         var re = /\S+@\S+\.\S+/;
         return re.test(email);
 }
@@ -17,7 +17,7 @@ function register() {
     $("#sign-in__message").html("NO WHITESPACE ALLOWED FOR INPUTS...");
   } else if (username == "" || email == "" || password =="") {
     $("#sign-in__message").html("CREDENTIAL(S) NOT FOUND...");
-  } else if (invalidEmail(email)) {
+  } else if (!validEmail(email)) {
     $("#sign-in__message").html("INVALID EMAIL...");
   } else {
     $.ajax({
@@ -44,7 +44,7 @@ function signIn() {
     $("#sign-in__message").html("NO WHITESPACE ALLOWED FOR INPUTS...");
   } else if (username == "" || email == "" || password =="") {
     $("#sign-in__message").html("CREDENTIAL(S) NOT FOUND...");
-  } else if (invalidEmail(email)) {
+  } else if (!validEmail(email)) {
     $("#sign-in__message").html("INVALID EMAIL...");
   } else {
     $.ajax({
