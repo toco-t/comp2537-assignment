@@ -22,10 +22,6 @@
   padding: 1% 2%;
 }
 
-.sign-in__form__input input:focus {
-  outline: 2px solid #FFCB05;
-}
-
 .sign-in__btn {
   display: flex;
   justify-content: flex-end;
@@ -33,6 +29,7 @@
 }
 
 .sign-in__btn button {
+  font-family: 'Press Start 2P', cursive;
   background-color: #333;
   color: #f1f1f1;
   border: 5px double #aaa;

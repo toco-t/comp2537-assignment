@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const fs = require("fs");
 
 app.use(session({
-  secret: "748748724",
+  secret: "748748",
   name: "Session",
   resave: true,
   saveUninitialized: true
@@ -28,6 +28,15 @@ const timelineSchema = new mongoose.Schema({
 
 const Timeline = mongoose.model("Timeline", timelineSchema);
 
+const userSchema = new mongoose.Schema({
+  user_id: Number,
+  username: String,
+  password: String,
+  cart: [Object],
+  past_orders: [[Object]]
+});
+
+const User = mongoose.model("User", timelineSchema);
 
 app.listen(process.env.PORT || 5000, function(err) {
   if (err) {
