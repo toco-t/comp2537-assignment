@@ -1,0 +1,49 @@
+.bag {
+  color: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin: 5%;
+}
+
+.bag__contents {
+  margin: 3%;
+}
+
+.bag__subtotal, .bag__tax, .bag__total {
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+}
+
+.bag__btn {
+  display: flex;
+  justify-content: flex-end;
+  margin: 5% 0 2%;
+  width: 40%;
+}
+
+.bag__btn button {
+  font-family: 'Press Start 2P', cursive;
+  border: 5px double #333;
+  padding: 2% 4%;
+}
+
+.divider {
+  background-color: #f1f1f1;
+  content: '';
+  height: 2px;
+  margin: 1%;
+  width: 60%;
+}
+
+@media (max-width: 700px) {
+  .bag__subtotal, .bag__tax, .bag__total {
+    width: 90%;
+  }
+
+  .divider {
+    width: 95%;
+  }
+}
