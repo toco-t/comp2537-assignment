@@ -77,8 +77,8 @@ app.get("/account.html", authenticate, (req, res) => {
   res.send(doc);
 })
 
-app.get("/timeline.html", authenticate, (req, res) => {
-  let doc = fs.readFileSync("./public/html/timeline.html", "utf8");
+app.get("/checkout.html", (req, res) => {
+  let doc = fs.readFileSync("./public/html/checkout.html", "utf8");
   res.send(doc);
 })
 
@@ -148,6 +148,13 @@ app.get("/account", (req, res) => {
 // });
 //
 // const Timeline = mongoose.model("Timeline", timelineSchema);
+//
+//
+// app.get("/timeline.html", authenticate, (req, res) => {
+//   let doc = fs.readFileSync("./public/html/timeline.html", "utf8");
+//   res.send(doc);
+// })
+//
 //
 // app.get("/timeline/events", (req, res) => {
 //
