@@ -29,10 +29,11 @@
   width: 90%;
 }
 
-.account__timeline__event {
+.account__timeline__event, .account__past-orders__order {
   background-color: #f1f1f1;
   border: 5px double #333;
   color: #333;
   padding: 2%;
-  width: 90%;
+  margin: auto;
+  width: 50%;
 }

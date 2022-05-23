@@ -116,7 +116,6 @@ function add() {
   let params = new URLSearchParams(window.location.search);
   let id = params.get("id");
   let quantity = $("#quantity").val()
-  console.log(hp[0]);
 
   $.ajax({
     url: `http://localhost:5000/add`,

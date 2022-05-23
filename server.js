@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema({
   email: String,
   password: String,
   cart: [Object],
-  past_orders: [[Object]],
+  past_orders: [Object],
   timeline: [Object]
 });
 
@@ -195,69 +195,24 @@ app.post("/timeline", (req, res) => {
   })
 })
 
-// const timelineSchema = new mongoose.Schema({
-//   content: String,
-//   hits: Number,
-//   time: String,
-// });
-//
-// const Timeline = mongoose.model("Timeline", timelineSchema);
-//
-//
-// app.get("/timeline.html", authenticate, (req, res) => {
-//   let doc = fs.readFileSync("./public/html/timeline.html", "utf8");
-//   res.send(doc);
-// })
-//
-//
-// app.get("/timeline/events", (req, res) => {
-//
-//   Timeline.find({}, (err, timelines) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       res.send(timelines);
-//     }
-//   });
-// })
-//
-// app.put("/timeline/insert", (req, res) => {
-//   Timeline.create({
-//     content: req.body.content,
-//     time: req.body.time,
-//     hits: req.body.hits
-//   }, (err, timelines) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       res.send(timelines);
-//     }
-//   });
-// })
-//
-// app.put("/timeline/update/:id", (req, res) => {
-//   // console.log(req.params);
-//   Timeline.updateOne({
-//     _id: req.params.id
-//   }, {
-//     $inc: {"hits": 1}
-//   }, (err, data) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       res.send(data);
-//     }
-//   });
-// })
-//
-// app.put("/timeline/delete/:id", (req, res) => {
-//   Timeline.deleteOne({
-//     _id: req.params.id
-//   }, (err, timelines) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       res.send(timelines);
-//     }
-//   });
-// })
+app.post("/past_orders", (req, res) => {
+  console.log(req.body.total);
+  console.log(req.body.ids);
+  User.findOneAndUpdate({
+    user_id: req.session.user_id
+  }, {
+    $push: {
+      past_orders: {
+        total: req.body.total,
+        ids: req.body.ids,
+        quantity: req.body.count
+      }
+    }
+  }, (err, users)=> {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(users)
+    }
+  })
+})
