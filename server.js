@@ -9,7 +9,7 @@ app.use(session({
   secret: "748748",
   name: "Session",
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: true,
 }));
 
 app.use("/html", express.static("./public/html"));
@@ -19,14 +19,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 mongoose.connect("mongodb+srv://Toco:31hPJ6x0MUeJvCaj@cluster0.f0pqe.mongodb.net/usersDB")
-
-const timelineSchema = new mongoose.Schema({
-  content: String,
-  hits: Number,
-  time: String,
-});
-
-const Timeline = mongoose.model("Timeline", timelineSchema);
 
 const userSchema = new mongoose.Schema({
   username: String,
@@ -125,6 +117,8 @@ app.post("/in", (req, res) => {
   }, (err, users) => {
     if (err) {
       console.log(err);
+    } else if (users.length == 0) {
+      res.send("NO USER FOUND");
     } else {
       req.session.user = users[0].username;
       req.session.id = users[0]._id;
@@ -137,55 +131,62 @@ app.post("/in", (req, res) => {
 
 
 
-
-app.get("/timeline/events", (req, res) => {
-
-  Timeline.find({}, (err, timelines) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(timelines);
-    }
-  });
-})
-
-app.put("/timeline/insert", (req, res) => {
-  Timeline.create({
-    content: req.body.content,
-    time: req.body.time,
-    hits: req.body.hits
-  }, (err, timelines) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(timelines);
-    }
-  });
-})
-
-app.put("/timeline/update/:id", (req, res) => {
-  // console.log(req.params);
-  Timeline.updateOne({
-    _id: req.params.id
-  }, {
-    $inc: {"hits": 1}
-  }, (err, data) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(data);
-    }
-  });
-})
-
-app.put("/timeline/delete/:id", (req, res) => {
-  Timeline.deleteOne({
-    _id: req.params.id
-  }, (err, timelines) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(timelines);
-    }
-  });
-})
+// const timelineSchema = new mongoose.Schema({
+//   content: String,
+//   hits: Number,
+//   time: String,
+// });
+//
+// const Timeline = mongoose.model("Timeline", timelineSchema);
+//
+// app.get("/timeline/events", (req, res) => {
+//
+//   Timeline.find({}, (err, timelines) => {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       res.send(timelines);
+//     }
+//   });
+// })
+//
+// app.put("/timeline/insert", (req, res) => {
+//   Timeline.create({
+//     content: req.body.content,
+//     time: req.body.time,
+//     hits: req.body.hits
+//   }, (err, timelines) => {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       res.send(timelines);
+//     }
+//   });
+// })
+//
+// app.put("/timeline/update/:id", (req, res) => {
+//   // console.log(req.params);
+//   Timeline.updateOne({
+//     _id: req.params.id
+//   }, {
+//     $inc: {"hits": 1}
+//   }, (err, data) => {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       res.send(data);
+//     }
+//   });
+// })
+//
+// app.put("/timeline/delete/:id", (req, res) => {
+//   Timeline.deleteOne({
+//     _id: req.params.id
+//   }, (err, timelines) => {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       res.send(timelines);
+//     }
+//   });
+// })

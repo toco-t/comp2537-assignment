@@ -47,7 +47,11 @@ function signIn() {
         password: password
       },
       success: (data) => {
-        window.location.href = "/";
+        if (data = "NO USER FOUND") {
+          $("#sign-in__message").html("NO ACCOUNT FOUND...");
+        } else {
+          window.location.href = "/";
+        }
       }
     })
   }
