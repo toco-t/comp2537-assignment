@@ -215,3 +215,20 @@ app.post("/past_orders", (req, res) => {
     }
   })
 })
+
+app.get("/empty", (req, res) => {
+  User.findOneAndUpdate ({
+    user_id: req.session.user_id
+  }, {
+    $pull: {
+      cart: {}
+    }
+  }, (err, users)=> {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(users)
+    }
+  })
+})
+})

@@ -42,6 +42,14 @@ function checkout() {
   var now = new Date(Date.now());
 
   $.ajax({
+    url: `https://serene-garden-30886.herokuapp.com/empty`,
+    type: "GET",
+    success: (data) => {
+      console.log(data);
+    }
+  })
+  
+  $.ajax({
     url: `https://serene-garden-30886.herokuapp.com/past_orders`,
     type: "POST",
     data: {
@@ -54,4 +62,5 @@ function checkout() {
       window.location.href = "/account.html";
     }
   })
+
 }

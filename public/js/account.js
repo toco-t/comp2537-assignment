@@ -16,7 +16,11 @@ $(document).ready(
       }
 
       if (data.past_orders.length > 0) {
+        var time = '';
+
         for (let i = 0; i < data.past_orders.length; i++) {
+
+          
           $(".account__past-orders").append(
             `<div class="account__past-orders__order"><p>&#165;${data.past_orders[i].total}</p>
             <p>Number of Pokemon: ${data.past_orders[i].quantity}</p>
