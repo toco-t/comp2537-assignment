@@ -18,7 +18,7 @@ app.use("/js", express.static("./public/js"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-mongoose.connect("mongodb+srv://Toco:31hPJ6x0MUeJvCaj@cluster0.f0pqe.mongodb.net/timelineDB")
+mongoose.connect("mongodb+srv://Toco:31hPJ6x0MUeJvCaj@cluster0.f0pqe.mongodb.net/usersDB")
 
 const timelineSchema = new mongoose.Schema({
   content: String,
@@ -29,14 +29,14 @@ const timelineSchema = new mongoose.Schema({
 const Timeline = mongoose.model("Timeline", timelineSchema);
 
 const userSchema = new mongoose.Schema({
-  user_id: Number,
   username: String,
+  email: String,
   password: String,
   cart: [Object],
   past_orders: [[Object]]
 });
 
-const User = mongoose.model("User", timelineSchema);
+const User = mongoose.model("User", userSchema);
 
 function authenticate(req, res, next) {
   if (req.session.authenticated) {
@@ -54,7 +54,7 @@ app.listen(process.env.PORT || 5000, function(err) {
   }
 })
 
-app.get("/", (req, res) => {
+app.get("/", authenticate, (req, res) => {
   let doc = fs.readFileSync("./public/html/index.html", "utf8");
   res.send(doc);
 })
@@ -64,20 +64,42 @@ app.get("/sign-in", (req, res) => {
   res.send(doc);
 })
 
-app.get("/search.html", (req, res) => {
+app.get("/search.html", authenticate, (req, res) => {
   let doc = fs.readFileSync("./public/html/search.html", "utf8");
   res.send(doc);
 })
 
-app.get("/pokemon.html", (req, res) => {
+app.get("/pokemon.html", authenticate, (req, res) => {
   let doc = fs.readFileSync("./public/html/pokemon.html", "utf8");
   res.send(doc);
 })
 
-app.get("/timeline.html", (req, res) => {
+app.get("/timeline.html", authenticate, (req, res) => {
   let doc = fs.readFileSync("./public/html/timeline.html", "utf8");
   res.send(doc);
 })
+
+var id = 0000;
+
+app.post("/register", (req, res) => {
+  User.create({
+    username: req.body.username,
+    email: req.body.email,
+    password: req.body.password,
+    cart: [],
+    past_orders: []
+  }, (err, users) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(users);
+    }
+  })
+})
+
+
+
+
 
 app.get("/timeline/events", (req, res) => {
 
