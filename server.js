@@ -196,8 +196,6 @@ app.post("/timeline", (req, res) => {
 })
 
 app.post("/past_orders", (req, res) => {
-  console.log(req.body.total);
-  console.log(req.body.ids);
   User.findOneAndUpdate({
     user_id: req.session.user_id
   }, {
@@ -205,7 +203,8 @@ app.post("/past_orders", (req, res) => {
       past_orders: {
         total: req.body.total,
         ids: req.body.ids,
-        quantity: req.body.count
+        quantity: req.body.count,
+        time: req.body.now
       }
     }
   }, (err, users)=> {
