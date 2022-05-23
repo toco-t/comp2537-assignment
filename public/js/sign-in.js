@@ -9,9 +9,9 @@ function register() {
   let password = $("#password").val();
 
   if (containsWhitespace(username) || containsWhitespace(email) || containsWhitespace(password)){
-    alert("NO WHITESPACE ALLOWED FOR INPUTS...");
+    $("#sign-in__message").html("NO WHITESPACE ALLOWED FOR INPUTS...");
   } else if (username == "" || email == "" || password =="") {
-    alert("CREDENTIAL(S) NOT FOUND...");
+    $("#sign-in__message").html("CREDENTIAL(S) NOT FOUND...");
   } else {
     $.ajax({
       url: `http://localhost:5000/register`,
@@ -22,7 +22,32 @@ function register() {
         password: password
       },
       success: (data) => {
-        alert("REGISTRATION SUCCESSFUL...");
+        $("#sign-in__message").html(data);
+      }
+    })
+  }
+}
+
+function signIn() {
+  let username = $("#username").val();
+  let email = $("#email").val();
+  let password = $("#password").val();
+
+  if (containsWhitespace(username) || containsWhitespace(email) || containsWhitespace(password)){
+    $("#sign-in__message").html("NO WHITESPACE ALLOWED FOR INPUTS...");
+  } else if (username == "" || email == "" || password =="") {
+    $("#sign-in__message").html("CREDENTIAL(S) NOT FOUND...");
+  } else {
+    $.ajax({
+      url: `http://localhost:5000/in`,
+      type: "POST",
+      data: {
+        username: username,
+        email: email,
+        password: password
+      },
+      success: (data) => {
+        window.location.href = "/";
       }
     })
   }

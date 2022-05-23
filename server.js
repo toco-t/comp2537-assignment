@@ -60,8 +60,12 @@ app.get("/", authenticate, (req, res) => {
 })
 
 app.get("/sign-in", (req, res) => {
-  let doc = fs.readFileSync("./public/html/sign-in.html", "utf8");
-  res.send(doc);
+  if (req.session.authenticated) {
+    res.redirect("/");
+  } else {
+    let doc = fs.readFileSync("./public/html/sign-in.html", "utf8");
+    res.send(doc);
+  }
 })
 
 app.get("/search.html", authenticate, (req, res) => {
@@ -79,20 +83,48 @@ app.get("/timeline.html", authenticate, (req, res) => {
   res.send(doc);
 })
 
-var id = 0000;
-
 app.post("/register", (req, res) => {
-  User.create({
+  User.find({
     username: req.body.username,
-    email: req.body.email,
-    password: req.body.password,
-    cart: [],
-    past_orders: []
+    email: req.body.email
   }, (err, users) => {
     if (err) {
       console.log(err);
     } else {
-      res.send(users);
+      if (users.length == 0) {
+        User.create({
+          username: req.body.username,
+          email: req.body.email,
+          password: req.body.password,
+          cart: [],
+          past_orders: []
+        }, (err, users) => {
+          if (err) {
+            console.log(err);
+          } else {
+            res.send("REGISTRATION SUCCESSFUL...");
+          }
+        })
+      } else {
+        res.send("THIS USER ALREADY EXISTS...")
+      }
+    }
+  })
+})
+
+app.post("/in", (req, res) => {
+  User.find({
+    username: req.body.username,
+    email: req.body.email,
+    password: req.body.password
+  }, (err, users) => {
+    if (err) {
+      console.log(err);
+    } else {
+      req.session.user = users[0].username;
+      req.session.id = users[0]._id;
+      req.session.authenticated = true;
+      res.send("SIGN IN SUCCESSFUL...");
     }
   })
 })
