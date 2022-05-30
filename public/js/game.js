@@ -44,6 +44,11 @@ function flipCard(id) {
 }
 
 $(document).ready(() => {
+  $(".grid__card").each((card) => {
+    let position = Math.floor(Math.random() * (rows * columns));
+    $(`#${card}`).css("order", position);
+  });
+
   $(".grid__card").on("click", function(event) {
     gameIsOn = true;
     flipCard(this.id);
