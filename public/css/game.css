@@ -23,10 +23,10 @@
   transform-style: preserve-3d;
 }
 
-.grid__card:active {
+/* .grid__card:active {
   transform: scale(0.97);
   transition: 0.1s;
-}
+} */
 
 .grid__card__front, .grid__card__back {
   backface-visibility: hidden;

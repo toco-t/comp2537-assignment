@@ -3,45 +3,49 @@ var pairs = 0;
 var rows = 2;
 var columns = 3;
 
+var gameIsOn = false;
+var locked = false;
 var firstCard = undefined;
 var secondCard = undefined;
 
-var inPlay = false;
-var locked = false;
+function flipCard(id) {
+  if (!gameIsOn) return;
+  if (locked) return;
+  $(`#${id}`).toggleClass("__active");
 
+  if (firstCard == undefined) {
+    firstCard = id;
+  } else if (firstCard == id){
+    $(`#${id}`).toggleClass("__active")
+    firstCard = undefined;
+  } else if (secondCard == undefined){
+    locked = true;
+    secondCard = id;
+
+    if ($(`#${firstCard} .grid__card__front`).attr("src") == $(`#${secondCard} .grid__card__front`).attr("src")) {
+      setTimeout(() => {
+        pairs ++;
+        $(`#${firstCard}`).off("click");
+        $(`#${secondCard}`).off("click");
+        firstCard = undefined;
+        secondCard = undefined;
+        locked = false;
+      }, 1000);
+    } else {
+      setTimeout(() => {
+        $(`#${firstCard}`).removeClass("__active");
+        $(`#${secondCard}`).removeClass("__active");
+        firstCard = undefined;
+        secondCard = undefined;
+        locked = false;
+      }, 2000);
+    }
+  }
+}
 
 $(document).ready(() => {
   $(".grid__card").on("click", function(event) {
-    if (locked) return;
-
-    $(this).toggleClass("__active");
-
-    if (!inPlay) {
-      firstCard = $(this).children()[0];
-      $(this).toggleClass("__selected");
-      inPlay = true;
-    } else {
-      secondCard = $(this).children()[0];
-      $(this).toggleClass("__selected");
-      inPlay = false;
-      locked = true;
-
-      if ($(firstCard).attr("src") == $(secondCard).attr("src")) {
-        pairs ++;
-        $(".__selected").off("click");
-        $(".__selected").off("click");
-        $(".__selected").removeClass("__selected");
-        $(".__selected").removeClass("__selected");
-        locked = false;
-      } else {
-        setTimeout(() => {
-          $(".__selected").removeClass("__active");
-          $(".__selected").removeClass("__active");
-          $(".__selected").removeClass("__selected");
-          $(".__selected").removeClass("__selected");
-        }, 2000);
-        locked = false;
-      }
-    }
+    gameIsOn = true;
+    flipCard(this.id);
   });
 })
