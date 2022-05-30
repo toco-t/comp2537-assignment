@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2%;
+  height: 90vh;
+  width: 90vw;
+  margin: auto;
+  perspective: 1000px;
+}
+
+.grid__card {
+  display: flex;
+  justify-content: center;
+  height: 50%;
+  width: calc(33% - 2%);
+  position: relative;
+  transition: 2s;
+  transform-style: preserve-3d;
+}
+
+.grid__card:active {
+  transform: scale(0.97);
+  transition: 0.1s;
+}
+
+.grid__card__front, .grid__card__back {
+  backface-visibility: hidden;
+  object-fit: contain;
+  position: absolute;
+  padding: 5%;
+  height: 100%;
+  width: 100%;
+}
+
+.grid__card__front {
+  transform: rotateY(180deg);
+}
+
+.__active {
+  transform: rotateY(180deg);
+}

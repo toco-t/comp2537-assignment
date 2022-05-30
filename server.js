@@ -16,6 +16,7 @@ app.use(session({
 app.use("/html", express.static("./public/html"));
 app.use("/css", express.static("./public/css"));
 app.use("/js", express.static("./public/js"));
+app.use("/image", express.static("./public/image"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -82,6 +83,12 @@ app.get("/checkout.html", authenticate, (req, res) => {
   let doc = fs.readFileSync("./public/html/checkout.html", "utf8");
   res.send(doc);
 })
+
+app.get("/game", (req, res) => {
+  let doc = fs.readFileSync("./public/html/game.html", "utf8");
+  res.send(doc);
+})
+
 
 app.post("/register", (req, res) => {
   User.find({
